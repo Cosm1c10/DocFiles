@@ -8,7 +8,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { createClient } from '@supabase/supabase-js';
+import { supabase } from '../../../frontend/lib/supabase';
 import {
   EnvelopeIcon,
   CheckCircleIcon,
@@ -26,11 +26,6 @@ export default function ForgotPasswordPage() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
-
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  );
 
   // =====================================================================
   // HANDLE SUBMIT

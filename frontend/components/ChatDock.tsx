@@ -6,7 +6,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { createClient } from '@supabase/supabase-js';
+import { supabase, supabaseUrl } from '../lib/supabase';
 import {
   ChatBubbleLeftRightIcon,
   XMarkIcon,
@@ -33,11 +33,6 @@ export default function ChatDock() {
   const [unreadCount, setUnreadCount] = useState(0);
   const [sending, setSending] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  );
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -125,7 +120,7 @@ export default function ChatDock() {
       if (!session) throw new Error('Not authenticated');
 
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/messages_send`,
+        `${supabaseUrl}/functions/v1/messages_send`,
         {
           method: 'POST',
           headers: {

@@ -12,7 +12,7 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import { createClient } from '@supabase/supabase-js';
+import { supabase } from '../lib/supabase';
 import DoctorSidebar from '../components/DoctorSidebar';
 import PatientRail from '../components/PatientRail';
 import StartConsultModal from '../components/StartConsultModal';
@@ -80,12 +80,6 @@ export default function DoctorDashboard() {
   const [showNotifications, setShowNotifications] = useState(false);
   const [loading, setLoading] = useState(true);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
-
-  // Supabase client
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  );
 
   // =====================================================================
   // FETCH APPOINTMENTS

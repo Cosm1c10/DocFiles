@@ -7,7 +7,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { SparklesIcon } from '@heroicons/react/24/outline';
-import { createClient } from '@supabase/supabase-js';
+import { supabase, supabaseUrl } from '../lib/supabase';
 
 interface Props {
   patientId: string;
@@ -18,11 +18,6 @@ interface Props {
 export default function AIActionCard({ patientId, reportId, onRefresh }: Props) {
   const [analyzing, setAnalyzing] = useState(false);
   const [result, setResult] = useState<{ success: boolean; message: string } | null>(null);
-
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  );
 
   const handleAnalyze = async () => {
     if (!reportId) {
@@ -40,7 +35,7 @@ export default function AIActionCard({ patientId, reportId, onRefresh }: Props) 
       }
 
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/reports_analyze`,
+        `${supabaseUrl}/functions/v1/reports_analyze`,
         {
           method: 'POST',
           headers: {

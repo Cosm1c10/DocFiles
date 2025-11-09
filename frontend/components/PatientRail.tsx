@@ -6,7 +6,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { createClient } from '@supabase/supabase-js';
+import { supabase } from '../lib/supabase';
 import AIActionCard from './AIActionCard';
 import ReportViewer from './ReportViewer';
 import {
@@ -47,6 +47,7 @@ interface Report {
   ai_summary?: any;
   ai_tags: string[];
   file_path: string;
+  created_at?: string;
 }
 
 interface Props {
@@ -60,11 +61,6 @@ export default function PatientRail({ patient, appointment, onStartConsult, onCl
   const [reports, setReports] = useState<Report[]>([]);
   const [selectedReport, setSelectedReport] = useState<Report | null>(null);
   const [loading, setLoading] = useState(true);
-
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  );
 
   useEffect(() => {
     fetchReports();
