@@ -2,7 +2,7 @@
 
 // =====================================================================
 // Login Page
-// Description: Universal login for patients and doctors
+// Description: Patient login
 // Design: Apple-inspired split screen layout
 // =====================================================================
 
@@ -99,24 +99,16 @@ export default function LoginPage() {
         throw new Error('Login failed');
       }
 
-      // 2. Check if user is patient or doctor
+      // 2. Check if user is a patient
       const { data: patientData } = await supabase
         .from('patients')
         .select('id')
         .eq('user_id', authData.user.id)
         .single();
 
-      const { data: doctorData } = await supabase
-        .from('doctors')
-        .select('id')
-        .eq('user_id', authData.user.id)
-        .single();
-
-      // 3. Redirect to appropriate dashboard
+      // 3. Redirect to patient dashboard
       if (patientData) {
         router.push('/patient/dashboard');
-      } else if (doctorData) {
-        router.push('/doctor/dashboard');
       } else {
         throw new Error('User profile not found. Please contact support.');
       }

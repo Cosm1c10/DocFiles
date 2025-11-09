@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Doctor Portal - Healthcare SaaS',
-  description: 'AI-powered doctor portal with Supabase and Google Gemini integration',
+  title: 'Patient Portal - Healthcare',
+  description: 'AI-powered patient portal with personalized health tracking',
 }
 
 export default function RootLayout({

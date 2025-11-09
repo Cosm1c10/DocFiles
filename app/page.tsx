@@ -22,15 +22,23 @@ export default function Home() {
                 <HeartIcon className="w-6 h-6 text-white" />
               </div>
               <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Doctor Portal
+                Patient Portal
               </h1>
             </div>
-            <Link
-              href="/doctor/dashboard"
-              className="px-6 py-2.5 bg-[#0A84FF] text-white rounded-xl font-medium hover:bg-blue-600 transition-all hover:shadow-lg"
-            >
-              Go to Dashboard
-            </Link>
+            <div className="flex gap-3">
+              <Link
+                href="/auth/login"
+                className="px-6 py-2.5 text-gray-700 border-2 border-gray-300 rounded-xl font-medium hover:border-blue-500 transition-all"
+              >
+                Login
+              </Link>
+              <Link
+                href="/auth/signup"
+                className="px-6 py-2.5 bg-[#0A84FF] text-white rounded-xl font-medium hover:bg-blue-600 transition-all hover:shadow-lg"
+              >
+                Get Started
+              </Link>
+            </div>
           </div>
         </div>
       </header>
@@ -40,36 +48,35 @@ export default function Home() {
         <div className="text-center">
           <div className="inline-flex items-center space-x-2 px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-6">
             <SparklesIcon className="w-4 h-4" />
-            <span>Powered by Google Gemini AI</span>
+            <span>Powered by AI</span>
           </div>
 
           <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-            AI-Powered Healthcare
+            Your Health Journey
             <br />
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              for Modern Doctors
+              Powered by AI
             </span>
           </h2>
 
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-10">
-            Complete doctor portal with intelligent report analysis, secure patient management,
-            and real-time collaboration. Built with Supabase and Google Gemini.
+            Track your health metrics, get personalized meal plans, and manage your wellness
+            with AI-powered insights.
           </p>
 
           <div className="flex items-center justify-center space-x-4">
             <Link
-              href="/doctor/dashboard"
+              href="/auth/signup"
               className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-2xl font-semibold hover:shadow-2xl hover:scale-105 transition-all"
             >
-              Launch Dashboard
+              Start Free
             </Link>
-            <a
-              href="/README_DOCTOR.md"
-              target="_blank"
+            <Link
+              href="/auth/login"
               className="px-8 py-4 bg-white text-gray-700 rounded-2xl font-semibold border-2 border-gray-200 hover:border-blue-500 hover:shadow-lg transition-all"
             >
-              View Documentation
-            </a>
+              Sign In
+            </Link>
           </div>
         </div>
 
@@ -77,38 +84,38 @@ export default function Home() {
         <div className="mt-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <FeatureCard
             icon={<SparklesIcon className="w-8 h-8" />}
-            title="AI Report Analysis"
-            description="Automated clinical summaries with flagged values, source attribution, and conservative language"
+            title="AI Health Insights"
+            description="Get personalized recommendations and insights powered by artificial intelligence"
             color="from-blue-500 to-cyan-500"
           />
           <FeatureCard
             icon={<ShieldCheckIcon className="w-8 h-8" />}
-            title="HIPAA Compliant"
-            description="Row-Level Security, consent-based access, and complete audit trails for compliance"
+            title="Secure & Private"
+            description="Your health data is protected with enterprise-grade security and encryption"
             color="from-purple-500 to-pink-500"
           />
           <FeatureCard
             icon={<CalendarDaysIcon className="w-8 h-8" />}
-            title="Smart Scheduling"
-            description="Calendar-based appointment management with integrated video consultations"
+            title="Health Tracking"
+            description="Monitor your daily metrics including water intake, calories, and activities"
             color="from-green-500 to-emerald-500"
           />
           <FeatureCard
             icon={<ChatBubbleLeftRightIcon className="w-8 h-8" />}
-            title="Secure Messaging"
-            description="Real-time doctor-patient communication with message templates and file sharing"
+            title="AI Consultant"
+            description="Chat with an AI health consultant for personalized guidance 24/7"
             color="from-orange-500 to-red-500"
           />
           <FeatureCard
             icon={<DocumentTextIcon className="w-8 h-8" />}
-            title="Report Management"
-            description="PDF/image viewer with annotations, AI summaries, and source snippets"
+            title="Meal Tracking"
+            description="Track your meals with detailed nutrition information and calorie counting"
             color="from-indigo-500 to-blue-500"
           />
           <FeatureCard
             icon={<HeartIcon className="w-8 h-8" />}
-            title="Patient-Centric"
-            description="Comprehensive medical history, allergies, conditions, and consent management"
+            title="Wellness Goals"
+            description="Set and achieve your health goals with personalized tracking and insights"
             color="from-pink-500 to-rose-500"
           />
         </div>
@@ -126,24 +133,24 @@ export default function Home() {
             <TechBadge name="Tailwind CSS" />
             <TechBadge name="Framer Motion" />
             <TechBadge name="PostgreSQL" />
-            <TechBadge name="Playwright" />
+            <TechBadge name="AI-Powered" />
           </div>
         </div>
 
         {/* Quick Stats */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
-          <StatCard number="15" label="Production Files" />
-          <StatCard number="6,000+" label="Lines of Code" />
-          <StatCard number="100%" label="Type Safe" />
-          <StatCard number="10+" label="Test Scenarios" />
+          <StatCard number="100%" label="Secure" />
+          <StatCard number="24/7" label="AI Support" />
+          <StatCard number="Free" label="To Start" />
+          <StatCard number="Easy" label="To Use" />
         </div>
 
         {/* Medical Disclaimer */}
         <div className="mt-16 bg-yellow-50 border-2 border-yellow-200 rounded-2xl p-6">
           <p className="text-sm text-yellow-900 text-center">
-            <strong>Medical Disclaimer:</strong> This platform provides AI-assisted clinical insights
-            for informational purposes only. All outputs must be reviewed by licensed healthcare professionals.
-            Not a substitute for professional medical judgment.
+            <strong>Medical Disclaimer:</strong> This platform provides AI-assisted health insights
+            for informational purposes only. Always consult with licensed healthcare professionals
+            for medical advice. Not a substitute for professional medical care.
           </p>
         </div>
       </section>
@@ -152,19 +159,8 @@ export default function Home() {
       <footer className="bg-gray-900 text-white py-12 mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gray-400">
-            © 2024 Healthcare Doctor Portal. Built for Healthcare. Designed for Excellence.
+            © 2024 Healthcare Patient Portal. Your Health, Your Data, Your Control.
           </p>
-          <div className="mt-4 flex items-center justify-center space-x-6">
-            <a href="/README_DOCTOR.md" target="_blank" className="text-gray-400 hover:text-white transition-colors">
-              Documentation
-            </a>
-            <a href="/DELIVERABLES_CHECKLIST.md" target="_blank" className="text-gray-400 hover:text-white transition-colors">
-              Deliverables
-            </a>
-            <a href="/api_contracts/doctor_api.yaml" target="_blank" className="text-gray-400 hover:text-white transition-colors">
-              API Docs
-            </a>
-          </div>
         </div>
       </footer>
     </div>

@@ -1,7 +1,7 @@
 {
-  "name": "healthcare-doctor-portal",
+  "name": "healthcare-patient-portal",
   "version": "1.0.0",
-  "description": "Production-grade Doctor Portal with Supabase + Gemini AI",
+  "description": "AI-powered Patient Portal with Supabase + Gemini AI",
   "private": true,
   "scripts": {
     "dev": "next dev",
