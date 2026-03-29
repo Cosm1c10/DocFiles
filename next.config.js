@@ -6,8 +6,7 @@ const nextConfig = {
     domains: [
       'localhost',
       'supabase.co',
-      // Add your Supabase storage domain here
-      // Example: 'your-project.supabase.co'
+      'gbehzslsqyplcfsiqfqx.supabase.co',
     ],
   },
   env: {
